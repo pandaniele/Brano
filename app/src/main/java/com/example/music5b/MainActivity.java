@@ -28,10 +28,10 @@ Spinner sp;
         sp=(Spinner)findViewById(R.id.spinner);
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
+            //sullo Spinner c'e' entries che prende i valori dal'array
             public void onClick(View v) {
-             String titolo="Film";
 
-                gb.addBrano();
+                gb.addBrano(tt.getText(), sp.getText());
             }
         });
     }

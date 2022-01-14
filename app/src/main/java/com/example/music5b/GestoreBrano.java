@@ -10,7 +10,7 @@ public GestoreBrano(){
     listaBrani=new ArrayList<Brano>();
 }
 
-public void addBrano(   String t, String h){
+public void addBrano( String t, String h){
        Brano b= new Brano(t, h);
     listaBrani.add(b);
 }
