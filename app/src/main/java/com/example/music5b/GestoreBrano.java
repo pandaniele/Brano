@@ -10,8 +10,18 @@ public GestoreBrano(){
     listaBrani=new ArrayList<Brano>();
 }
 
-public void addBrano( String t, String h){
-       Brano b= new Brano(t, h);
+public void addBrano( Brano b){
     listaBrani.add(b);
+}
+public StringBuilder listaBrano(){
+    //spedire all'acrivity una stringa con tutti i grani della mia list
+    StringBuilder stBui= new StringBuilder();
+            //CONCATENA TUTTE LE STRINGHR
+    for (Brano brV :listaBrani) {
+        //
+stBui.append(brV.toString()+'\n');
+
+    }
+    return stBui;
 }
 }
