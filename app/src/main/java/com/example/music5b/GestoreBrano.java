@@ -21,6 +21,8 @@ public StringBuilder listaBrano(){
         //
 stBui.append(brV.toString()+'\n');
 
+//perche' non mi da' la Stringa ma la @???
+
     }
     return stBui;
 }

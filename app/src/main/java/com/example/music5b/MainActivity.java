@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.Serializable;
 
@@ -48,6 +49,8 @@ sp.setAdapter(adapter);
             //sullo Spinner c'e' entries che prende i valori dal'array
             public void onClick(View v) {
 String titolo=sp.getSelectedItem().toString();
+                Toast.makeText(getApplicationContext(), titolo, Toast.LENGTH_SHORT).show();
+
                 gb.addBrano(new Brano(tt.getText().toString(), titolo));
             }
         });
@@ -58,7 +61,7 @@ String titolo=sp.getSelectedItem().toString();
             @Override
             public void onClick(View v) {
                 Intent cioc=new Intent(getApplicationContext(), MainActivityDue.class);
-                
+                Toast.makeText(getApplicationContext(), gb.listaBrano(), Toast.LENGTH_SHORT).show();
 cioc.putExtra("alealeo", (Serializable) gb.listaBrano());
                 startActivity(cioc);
             }
