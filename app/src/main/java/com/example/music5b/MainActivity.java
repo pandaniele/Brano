@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.io.Serializable;
+
 public class MainActivity extends AppCompatActivity {
 
 TextView tt;
@@ -56,8 +58,8 @@ String titolo=sp.getSelectedItem().toString();
             @Override
             public void onClick(View v) {
                 Intent cioc=new Intent(getApplicationContext(), MainActivityDue.class);
-                StringBuilder al=gb.listaBrano();
-cioc.putExtra("alealeo", al);
+                
+cioc.putExtra("alealeo", (Serializable) gb.listaBrano());
                 startActivity(cioc);
             }
         });
