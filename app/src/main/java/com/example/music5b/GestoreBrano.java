@@ -18,10 +18,10 @@ public StringBuilder listaBrano(){
     StringBuilder stBui= new StringBuilder();
             //CONCATENA TUTTE LE STRINGHR
     for (Brano brV :listaBrani) {
-        //
+
+        //brV.getTitolo()+','+brV.getGenere()
 stBui.append(brV.toString()+'\n');
 
-//perche' non mi da' la Stringa ma la @???
 
     }
     return stBui;

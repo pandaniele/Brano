@@ -13,4 +13,24 @@ public class Brano {
      datapub=null;
 
     }
+
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
+    }
+
+    public String getTitolo() {
+        return titolo;
+    }
+
+    public String getGenere() {
+        return genere;
+    }
+
+    public String toString(){
+
+        String a=this.getTitolo()+""+this.getGenere();
+        //perche' non uso append???
+        return a;
+
+    }
 }
