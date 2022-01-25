@@ -13,17 +13,23 @@ public GestoreBrano(){
 public void addBrano( Brano b){
     listaBrani.add(b);
 }
-public StringBuilder listaBrano(){
+
+public String listaBrano(){
     //spedire all'acrivity una stringa con tutti i grani della mia list
     StringBuilder stBui= new StringBuilder();
             //CONCATENA TUTTE LE STRINGHR
     for (Brano brV :listaBrani) {
+        //Brano; elemento in lista brV(puntatore a nuovo oggetto Brano) di tipo Brano  che prelevo ogni volta da arraydibrani, nuovo
+        //puntatore a oggetti ad ogni for
 
         //brV.getTitolo()+','+brV.getGenere()
-stBui.append(brV.toString()+'\n');
+stBui.append(brV.toString());
+stBui.append('\n');
+//classe per concatenare tante scritte in manera piu' EFFICENTE oppure il String=String +"" etc...
 
 
     }
-    return stBui;
+    return stBui.toString();
+    //restituisce una stringa contenuta nell stBui con tutti i dati delle canzoni ;
 }
 }

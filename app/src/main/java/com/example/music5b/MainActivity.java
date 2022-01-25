@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -27,7 +28,7 @@ String[] generi= {"Pop", "Trap", "Rap"};
     // Popola la listView con la ArrayList della classe GestoreBrano
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+//dipendenza :associazione
         gb=new GestoreBrano();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -39,7 +40,7 @@ String[] generi= {"Pop", "Trap", "Rap"};
         sp=(Spinner)findViewById(R.id.spinGeneri);
         //spinner e' di tipo View
         //createForm crea arrayAdapter da array di stringhe 2) parametro.
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+       /* ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.generi, android.R.layout.simple_spinner_item);
 
                                    //3) metodo di visualizzazione della scelta spinner.
@@ -47,6 +48,7 @@ String[] generi= {"Pop", "Trap", "Rap"};
         //ridondante????
         sp.setAdapter(adapter);
         //applica l'adattatore allo spinner.
+        */
 
 
 
@@ -62,21 +64,28 @@ String[] generi= {"Pop", "Trap", "Rap"};
 String genere=sp.getSelectedItem().toString();
 // to String restituisce il nome dell'opzione che noi abbiamo selezionato nella funzione specifica: getSeelectedItem().
 
-                Toast.makeText(getApplicationContext(), genere, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "dato inserito", Toast.LENGTH_SHORT).show();
 
                 gb.addBrano(new Brano(tt.getText().toString(), genere));
             }
         });
 
 
-
+        //Log.d("ciao".toString());
         lw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //ottenere la stringa con tutti i dati
+                //instanziare u intent
+                //aggiungere la stringa all'intent
+                //avviare l'activity
+                String lista= gb.listaBrano();
+
                 Intent cioc=new Intent(getApplicationContext(), MainActivityDue.class);
 
-                Toast.makeText(getApplicationContext(), gb.listaBrano(), Toast.LENGTH_SHORT).show();
-cioc.putExtra("alealeo", (Serializable) gb.listaBrano());
+
+              //  Toast.makeText(getApplicationContext(), gb.listaBrano(), Toast.LENGTH_SHORT).show();
+            cioc.putExtra("alealeo", lista);
 
 
                 startActivity(cioc);
