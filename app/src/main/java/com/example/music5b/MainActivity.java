@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -22,6 +23,9 @@ Spinner sp;
 String[] generi= {"Pop", "Trap", "Rap"};
 //array di stringhe generi che associero' all'arrayAdapter;
 
+    private static final String TAG = "MyActivity";
+
+Log.i(TAG, "MyClass.getView() — get item number ");
 
 // crea un oggetto Brano che aggiungo al'arrayList'
     Button lw;

@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
         android:layout_marginEnd="106dp"
-        android:layout_marginBottom="408dp"
+        android:layout_marginBottom="376dp"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button2"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="106dp"
         android:layout_marginEnd="49dp"
-        android:layout_marginBottom="408dp"
+        android:layout_marginBottom="376dp"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,8 +45,8 @@
 
     <Spinner
         android:id="@+id/spinGeneri"
-        android:layout_width="308dp"
-        android:layout_height="84dp"
+        android:layout_width="303dp"
+        android:layout_height="63dp"
         android:layout_marginStart="51dp"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="52dp"
