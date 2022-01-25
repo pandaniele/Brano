@@ -1,5 +1,7 @@
 package com.example.music5b;
 // QESTA CLASSE VA NEL MAINACTIVITY NON NEL MAIN IN GENERALE??????
+import android.util.Log;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,6 +13,9 @@ public GestoreBrano(){
 }
 
 public void addBrano( Brano b){
+
+
+
     listaBrani.add(b);
 }
 

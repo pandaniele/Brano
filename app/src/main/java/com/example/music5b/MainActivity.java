@@ -23,15 +23,14 @@ Spinner sp;
 String[] generi= {"Pop", "Trap", "Rap"};
 //array di stringhe generi che associero' all'arrayAdapter;
 
-    private static final String TAG = "MyActivity";
 
-Log.i(TAG, "MyClass.getView() — get item number ");
 
 // crea un oggetto Brano che aggiungo al'arrayList'
     Button lw;
     // Popola la listView con la ArrayList della classe GestoreBrano
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("MainActivity","Oncreate");
 //dipendenza :associazione
         gb=new GestoreBrano();
         super.onCreate(savedInstanceState);
@@ -62,6 +61,7 @@ Log.i(TAG, "MyClass.getView() — get item number ");
         sp.setAdapter(as);
 
         bt.setOnClickListener(new View.OnClickListener() {
+
             @Override
             //sullo Spinner c'e' entries che prende i valori dal'array
             public void onClick(View v) {
@@ -71,6 +71,7 @@ String genere=sp.getSelectedItem().toString();
                 Toast.makeText(getApplicationContext(), "dato inserito", Toast.LENGTH_SHORT).show();
 
                 gb.addBrano(new Brano(tt.getText().toString(), genere));
+                Log.i("MainActivity","genere.toString()");
             }
         });
 
