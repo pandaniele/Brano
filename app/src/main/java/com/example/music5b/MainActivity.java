@@ -1,10 +1,12 @@
 package com.example.music5b;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -22,7 +24,7 @@ Button bt;
 Spinner sp;
 String[] generi= {"Pop", "Trap", "Rap"};
 //array di stringhe generi che associero' all'arrayAdapter;
-
+String tag ="MainActivity";
 
 
 // crea un oggetto Brano che aggiungo al'arrayList'
@@ -30,7 +32,12 @@ String[] generi= {"Pop", "Trap", "Rap"};
     // Popola la listView con la ArrayList della classe GestoreBrano
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("MainActivity","Oncreate");
+
+        //tag che metto nella ricerca del LOGCAT, e messaggio
+        //nome Activity direttamente nel TAG o come stringa TAG.
+        Log.d(tag,"Sono nell'Oncreate");
+        //Log statico perche' non devo istanziare la classe.
+
 //dipendenza :associazione
         gb=new GestoreBrano();
         super.onCreate(savedInstanceState);
@@ -71,7 +78,7 @@ String genere=sp.getSelectedItem().toString();
                 Toast.makeText(getApplicationContext(), "dato inserito", Toast.LENGTH_SHORT).show();
 
                 gb.addBrano(new Brano(tt.getText().toString(), genere));
-                Log.i("MainActivity","genere.toString()");
+                //Log.i("MainActivity","genere.toString()");
             }
         });
 
@@ -96,5 +103,17 @@ String genere=sp.getSelectedItem().toString();
                 startActivity(cioc);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(tag,"Sono nell'OnResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(tag,"Sono nell'onPause");
     }
 }
