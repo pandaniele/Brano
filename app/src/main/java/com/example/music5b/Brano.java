@@ -28,7 +28,7 @@ public class Brano {
 
     public String toString(){
 
-        String a=this.getTitolo()+""+this.getGenere();
+        String a=this.getTitolo()+" "+this.getGenere();
         //perche' non uso append???
         return a;
 

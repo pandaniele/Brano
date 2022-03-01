@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,16 +20,18 @@ import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity {
     GestoreBrano gb;//??
-TextView tt;
+EditText tt;
 Button bt;
 Spinner sp;
-String[] generi= {"Pop", "Trap", "Rap"};
+String[] generi= {"Pop", "Benessere", "Relax", "Anni 90", "Dance", "Amore", "Viaggi", "Jazz",
+"Latina", "Soul"};
 //array di stringhe generi che associero' all'arrayAdapter;
 String tag ="MainActivity";
 
 
 // crea un oggetto Brano che aggiungo al'arrayList'
     Button lw;
+    TextView pp;
     // Popola la listView con la ArrayList della classe GestoreBrano
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +47,10 @@ String tag ="MainActivity";
         setContentView(R.layout.activity_main);
         bt=(Button)findViewById(R.id.button);
         //btnInserisci
-
+//textViewNomeFile
+        pp=(TextView)findViewById(R.id.textViewNomeFile);
         lw=(Button)findViewById(R.id.button2);
-        tt=(TextView)findViewById(R.id.textView);
+        tt=(EditText) findViewById(R.id.editTextTextPersonName);
         sp=(Spinner)findViewById(R.id.spinGeneri);
         //spinner e' di tipo View
         //createForm crea arrayAdapter da array di stringhe 2) parametro.
@@ -65,6 +69,8 @@ String tag ="MainActivity";
         //IL PROFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 //1) activity di dove lo costruisco2) layout dell'elemento ALLO spinner ; 3) fonte di dati;
         ArrayAdapter<String> as=new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, generi);
+
+        //CAMBIA FONTE DI DATI?????
         sp.setAdapter(as);
 
         bt.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +83,7 @@ String genere=sp.getSelectedItem().toString();
 
                 Toast.makeText(getApplicationContext(), "dato inserito", Toast.LENGTH_SHORT).show();
 
-                gb.addBrano(new Brano(tt.getText().toString(), genere));
+                gb.addBrano(pp.getText().toString(), new Brano(tt.getText().toString(), genere), getApplicationContext());
                 //Log.i("MainActivity","genere.toString()");
             }
         });
@@ -91,12 +97,12 @@ String genere=sp.getSelectedItem().toString();
                 //instanziare u intent
                 //aggiungere la stringa all'intent
                 //avviare l'activity
-                String lista= gb.listaBrano();
+                String lista= gb.listaBrano(pp.getText().toString(), getApplicationContext());
 
                 Intent cioc=new Intent(getApplicationContext(), MainActivityDue.class);
 
 
-              //  Toast.makeText(getApplicationContext(), gb.listaBrano(), Toast.LENGTH_SHORT).show();
+              // Toast.makeText(getApplicationContext(), lista, Toast.LENGTH_SHORT).show();
             cioc.putExtra("alealeo", lista);
 
 
@@ -104,6 +110,24 @@ String genere=sp.getSelectedItem().toString();
             }
         });
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     protected void onResume() {

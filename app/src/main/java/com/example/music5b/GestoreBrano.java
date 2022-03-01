@@ -1,6 +1,8 @@
 package com.example.music5b;
 // QESTA CLASSE VA NEL MAINACTIVITY NON NEL MAIN IN GENERALE??????
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -8,18 +10,38 @@ import java.util.Date;
 
 public class GestoreBrano {
 ArrayList<Brano> listaBrani;
+GestoreFile gf;
 public GestoreBrano(){
     listaBrani=new ArrayList<Brano>();
+   gf=new GestoreFile();
 }
 
-public void addBrano( Brano b){
+public void addBrano( String h, Brano b, Context c){
+
+    StringBuilder g= new StringBuilder();
+    g.append(b.getTitolo());
+    g.append(",");
+    g.append(b.getGenere());
+    g.append('\n');
+    gf.scriviFile( h,g.toString(),c);
 
 
-
-    listaBrani.add(b);
 }
 
-public String listaBrano(){
+public String listaBrano(String h, Context c){
+
+    String stringa=gf.readFile(h,c);
+
+    String[] separated = stringa.split("\n");
+
+    for (String mmV :separated) {
+        String[] separTwo = mmV.split(",");
+Brano b= new Brano(separTwo[0], separTwo[1]);
+
+            listaBrani.add(b);
+    }
+
+
     //spedire all'acrivity una stringa con tutti i grani della mia list
     StringBuilder stBui= new StringBuilder();
             //CONCATENA TUTTE LE STRINGHR
