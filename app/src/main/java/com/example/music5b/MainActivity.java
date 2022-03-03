@@ -24,7 +24,7 @@ EditText tt;
 Button bt;
 Spinner sp;
 String[] generi= {"Pop", "Benessere", "Relax", "Anni 90", "Dance", "Amore", "Viaggi", "Jazz",
-"Latina", "Soul"};
+"Latina", "Soul", "Drammatico"};
 //array di stringhe generi che associero' all'arrayAdapter;
 String tag ="MainActivity";
 

@@ -24,6 +24,7 @@ public void addBrano( String h, Brano b, Context c){
     g.append(b.getGenere());
     g.append('\n');
     gf.scriviFile( h,g.toString(),c);
+    //nome,genere \n
 
 
 }
@@ -52,6 +53,7 @@ Brano b= new Brano(separTwo[0], separTwo[1]);
         //brV.getTitolo()+','+brV.getGenere()
 stBui.append(brV.toString());
 stBui.append('\n');
+// nome genere \n
 //classe per concatenare tante scritte in manera piu' EFFICENTE oppure il String=String +"" etc...
 
 
